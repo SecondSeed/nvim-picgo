@@ -81,7 +81,7 @@ function nvim_picgo.setup(conf)
 end
 
 function nvim_picgo.upload_clipboard()
-    vim.fn.jobstart({ "picgo", "u" }, {
+    vim.fn.jobstart( "node D:\\minitools\\PicGo-Core2022-08-26\\bin\\picgo u" , {
         on_stdout = callbackfn,
     })
 end
@@ -102,8 +102,8 @@ function nvim_picgo.upload_imagefile()
     end
 
     assert(vim.fn.filereadable(image_path) == 1, "The image path is not valid")
-
-    vim.fn.jobstart({ "picgo", "u", image_path }, {
+    
+    vim.fn.jobstart( "node D:\\minitools\\PicGo-Core2022-08-26\\bin\\picgo u " .. image_path , {
         on_stdout = callbackfn,
     })
 end
